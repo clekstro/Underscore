@@ -2,16 +2,9 @@ language: generic
 
 matrix:
   include:
-    - os: linux
-      services: docker
-      sudo: required
-      dist: trusty
     - os: osx
       osx_image: xcode7.3
       sudo: required
-      
-  exclude:
-    - os: linux
 
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then SWIFT_DIR=tests ; fi
