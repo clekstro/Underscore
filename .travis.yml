@@ -1,3 +1,8 @@
+env:
+  # Workaround for https://github.com/travis-ci/travis-ci/issues/4681
+  matrix:
+    - TRAVIS_EMPTY_JOB_WORKAROUND=true
+
 matrix:
   include:
     - os: osx
@@ -8,6 +13,8 @@ matrix:
       services: docker
       sudo: required
       dist: trusty
+  exclude:
+    - env: TRAVIS_EMPTY_JOB_WORKAROUND=true
 
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then SWIFT_DIR=tests ; fi
