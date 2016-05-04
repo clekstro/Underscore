@@ -1,5 +1,4 @@
-env:
-  - BOGUS_JOB=true
+language: bash
 
 matrix:
   include:
@@ -12,7 +11,7 @@ matrix:
       dist: trusty
       
   exclude:
-    - env: BOGUS_JOB=true
+    - language: bash
 
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then SWIFT_DIR=tests ; fi
