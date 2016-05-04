@@ -1,8 +1,4 @@
 language: generic
-env:
-  # Workaround for: https://github.com/travis-ci/travis-ci/issues/4681
-  matrix:
-    - TRAVIS_EXTRA_JOB_WORKAROUND=true
     
 matrix:
   include:
@@ -15,7 +11,7 @@ matrix:
       sudo: required
   
   exclude:
-    - env: TRAVIS_EXTRA_JOB_WORKAROUND=true
+    - language: generic
 
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then SWIFT_DIR=tests ; fi
